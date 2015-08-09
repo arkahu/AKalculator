@@ -2,12 +2,12 @@
 
 """
 --AKalculator--
-version 1.1 
+version 2.0 
 "Advanded Kalculator"?
 
 This program is a simple function calculator.
 Created by: Arttu Huttunen, Oulu, Finland <arttuhut@gmail.com>
-Created: August 2011
+Created: August 2011, modified in 2015.
 
 Copyright (C) 2011 by Arttu Huttunen 
 Published under MIT-license. Anyone is free to do anything they want with
@@ -15,9 +15,10 @@ the software or the source code and it comes with absolutely no warranty
 of any kind.
 
 This is a PyQt graphical frontend for Python's math functions.
-Created with Python version 2.6.5 and PyQt4 4.5.4 in Python(x,y)-package.
+Originally created with Python version 2.6.5 and PyQt4 4.5.4 in 
+Python(x,y)-package. Version 2.0 updated with Python 3.4.1 and PyQt 4.10.4.
 
-You need Python and PyQt on your machine to run this. 
+You need Python3 and PyQt on your machine to run this. 
 """
 
 #import division to have fractional division by default
@@ -52,6 +53,7 @@ class CalculatorGUI(QMainWindow):
         self.dotAction = QAction ('Commas to dots', self)
         
         self.dotAction.setCheckable(True)
+        self.dotAction.setChecked(True)
         
         #Mathematical funtions to "functions"-menu
         self.piAction = QAction ('pi', self)
@@ -178,7 +180,7 @@ class CalculatorGUI(QMainWindow):
         "pow(x,y)")
         self.buttonSqrt.setStatusTip("Square root")
         self.buttonModulo.setStatusTip("Modulo operation, remainder of a "
-        "division (%)")
+        "division (%), for example 4%2")
 
         #Function menu status tips
         self.piAction.setStatusTip("Pi = 3.141592... to available precision")
@@ -469,14 +471,15 @@ class CalculatorGUI(QMainWindow):
     #Read input, calculate write output
     def Calculate(self):
         try:
-            inputText = unicode(self.inputBox.text())
+            inputText = str(self.inputBox.text())
             if self.dotAction.isChecked():
                 inputText = inputText.replace(',','.')
             
             self.outputBox.append("%s = %s" % (inputText,eval(inputText)))
         except:
             self.outputBox.append("ERROR")
- 
+
+
     #Clear all boxes menu command function
     def ClearAllBoxes(self):
         self.inputBox.setText("")
@@ -497,9 +500,9 @@ NOTE: Use dots for decimal point, comma creates a list.\n""")
         
     def PrintInfo(self):
         self.outputBox.append('''
-AKalculator \nVersion: 1.1 \nCreated by: 
-Arttu Huttunen, (Oulu, Finland, 2011)
-Copyright (C) 2011 by Arttu Huttunen
+AKalculator \nVersion: 2.0 \nCreated by: 
+Arttu Huttunen, (Oulu, Finland, 2015)
+Copyright (C) 2015 by Arttu Huttunen
 This software is distributed under MIT-license. Therefore it is free and
 open source software.\n''')
 
