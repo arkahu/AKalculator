@@ -6,7 +6,7 @@ version 2.0
 "Advanded Kalculator"?
 
 This program is a simple function calculator.
-Created by: Arttu Huttunen, Oulu, Finland <arttuhut@gmail.com>
+Created by: Arttu Huttunen, Oulu, Finland
 Created: August 2011, modified in 2015.
 
 Copyright (C) 2011 by Arttu Huttunen 
