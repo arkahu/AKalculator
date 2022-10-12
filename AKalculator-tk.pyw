@@ -2,7 +2,7 @@
 
 """
 --AKalculator--
-version 3.0 
+version 3.01
 "Advanced Kalculator"?
 
 This program is a simple function calculator.
@@ -24,6 +24,7 @@ You need Python3 and tkinter on your machine to run this.
 
 import tkinter as tk
 from tkinter import ttk
+from tkinter.scrolledtext import ScrolledText
 import cmath
 from math import *
 
@@ -37,7 +38,7 @@ class CalculatorFrame(ttk.Frame):
         
         self.commasToDots_status = True
 
-        self.outputBox= tk.scrolledtext.ScrolledText(self, width=50,  height=16)
+        self.outputBox= ScrolledText(self, width=50,  height=16)
         self.outputBox.grid(column=0, row=0, columnspan=5, **options)
 
         self.inputStr = tk.StringVar()
